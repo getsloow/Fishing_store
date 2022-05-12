@@ -1,0 +1,40 @@
+﻿@model Post
+
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-secondary">Create Post</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class ="mb-3">
+            <label asp-for="Description"> </label>
+            <input asp-for="Description"  class="form-control"/>
+            <span asp-validation-for="Description" class="text-danger"></span>
+
+        </div>
+         <div class ="mb-3">
+            <label asp-for="Picture"> </label>
+            <input asp-for="Picture"  class="form-control"/>
+               <span asp-validation-for="Picture" class="text-danger"></span>
+
+        </div>
+         <div class ="mb-3">
+            <label asp-for="EventId" > </label>
+            <input asp-for="EventId"  class="form-control"/>
+               <span asp-validation-for="EventId" class="text-danger"></span>
+
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+        <a asp-controller="Post" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to list </a>
+    </div>
+
+
+</form>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
