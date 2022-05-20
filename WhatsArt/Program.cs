@@ -1,5 +1,9 @@
 using WhatsArt.Data;
 using Microsoft.EntityFrameworkCore;
+using WhatsArt.Repositories.Interfaces;
+using WhatsArt.Services.Interfaces;
+using WhatsArt.Services;
+using WhatsArt.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +13,12 @@ builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+builder.Services.AddScoped<IPostRepository, PostRepository>();
+builder.Services.AddScoped<IPostServices, PostServices>();
 
 var app = builder.Build();
 

@@ -1,24 +1,31 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WhatsArt.Data;
 using WhatsArt.Models;
+using WhatsArt.Services.Interfaces;
 
 namespace WhatsArt.Controllers
 {
     public class PostController : Controller
     {
-        private readonly ApplicationDbContext _db;
-
-        public PostController(ApplicationDbContext db)
+        private readonly IPostServices postServices;
+        public PostController(IPostServices _postServices)
         {
-            _db = db;
+          this.postServices = _postServices;
         }
         public IActionResult Index()
         {
-            IEnumerable<Post> objUserList = _db.Posts;
-            return View(objUserList);
+            IEnumerable<Post> objPostsList = postServices.GetAllPosts();
+            return View(objPostsList);
         }
 
-        //GET
+        [HttpPost]
+        public IActionResult Create(Post obj)
+        {
+            postServices.CreatePost(obj);
+            return RedirectToAction("Index");
+        }
+
+      /*  //GET
         public IActionResult Create()
         {
             
@@ -111,5 +118,6 @@ namespace WhatsArt.Controllers
             
             return View(obj);
         }
+      */
     }
 }
