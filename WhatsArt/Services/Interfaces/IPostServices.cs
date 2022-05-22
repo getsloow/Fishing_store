@@ -4,8 +4,9 @@ namespace WhatsArt.Services.Interfaces
 {
     public interface IPostServices
     {
-       public List<Post> GetAllPosts();
+        List<Post> GetPosts();
 
-        public void CreatePost(Post obj);
+        void Create(Post post);
+        IEnumerable<Post> GetUserPosts(int id);
     }
 }

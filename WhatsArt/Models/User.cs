@@ -5,13 +5,19 @@ namespace WhatsArt.Models
     public class User
     {
         [Key]
-        public int Id { get; set; } 
-        [Required] 
-        public string Name { get; set; }
+        public int Id { get; set; }
         [Required]
-        [Display(Name ="E-Mail Address")]
-        public string Email { get; set; }
+        public string UserName { get; set; }
         [Required]
-        public string Password{ get; set; }
+        [Display(Name = "E-Mail Address")]
+        public string UserEmail { get; set; }
+        [Required]
+        public string UserPassword { get; set; }
+
+
+
+
+        public ICollection<Post> Posts{ get; set; }
+
     }
 }

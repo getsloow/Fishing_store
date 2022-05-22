@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<User>
 @{
     ViewData["Title"] = "Index";
+
 }
 
 @if(TempData["success"]!= null)
@@ -28,12 +29,13 @@
             <th>
                 User Id
             </th>
-             <th>
+            <th>
                 User Name
             </th>
              <th>
-                Email
+                E-Mail Address
             </th>
+            
             <th></th>
         </tr>
 
@@ -43,16 +45,19 @@
         {
             <tr>
                 <td>
-                    @obj.Id
+                    @obj?.Id
                 </td>
                 <td>
-                    @obj.Name
+                    @obj?.UserName
                 </td>
-                 <td>
-                    @obj.Email
+                <td>
+                    @obj?.UserEmail
                 </td>
+                 
                 <td>
                     <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Post" asp-action="ViewUserPosts" asp-route-id="@obj.Id" 
+                        class="btn btn-primary"><i class="bi bi-pencil-fill"></i>View Posts</a>
                         <a asp-controller="User" asp-action="Edit" asp-route-id="@obj.Id" 
                         class="btn btn-primary"><i class="bi bi-pencil-fill"></i>Edit</a>
                          <a asp-controller="User" asp-action="Delete" asp-route-id="@obj.Id" 
