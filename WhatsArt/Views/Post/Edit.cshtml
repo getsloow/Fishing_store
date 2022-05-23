@@ -1,10 +1,10 @@
 ﻿@model Post
 
 
-<form method="post">
+<form method="post" asp-action="EditPost">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
-            <h2 class="text-secondary">Create Post</h2>
+            <h2 class="text-secondary">Edit Post</h2>
             <hr />
         </div>
         <div asp-validation-summary="All"></div>
@@ -15,20 +15,19 @@
 
         </div>
          <div class ="mb-3">
-            <label asp-for="PostImage"> </label>
+            <label asp-for="PostImage"> Picture</label>
             <input asp-for="PostImage"  class="form-control"/>
                <span asp-validation-for="PostImage" class="text-danger"></span>
 
         </div>
-
          <div class ="mb-3">
             <label asp-for="UserId" > </label>
             <input asp-for="UserId"  class="form-control"/>
                <span asp-validation-for="UserId" class="text-danger"></span>
 
         </div>
-        <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
-        <a asp-controller="Post" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to list </a>
+        <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+        <a asp-controller="Post" asp-action="index" class="btn btn-secondary" style="width:150px">Back to list </a>
     </div>
 
 

@@ -29,10 +29,13 @@ namespace WhatsArt.Data
                   .WithMany(g => g.Posts)
                   .HasForeignKey(s => s.UserId);
 
-            modelBuilder.Entity<User>()
+            
+          /*  modelBuilder.Entity<User>()
                  .HasMany<Post>(s => s.Posts)
                  .WithOne(g => g.User)
-                 .HasForeignKey(s => s.UserId);
+                 .HasForeignKey(s => s.UserId);*/
+
+         
         }
 
         public DbSet<Post> Posts { get; set; }

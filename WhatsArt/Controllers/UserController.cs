@@ -32,8 +32,13 @@ namespace WhatsArt.Controllers
             return RedirectToAction("Index");
             
         }
+        public IActionResult Delete(int id)
+        {
 
-    
+            userService.Delete(id);
+            return RedirectToAction("Index");
+        }
+
 
     }
 }

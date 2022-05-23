@@ -26,9 +26,6 @@
 <table class="table table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
-            <th>
-                Posted By
-            </th>
              <th>
                 Post Description
             </th>
@@ -43,9 +40,7 @@
         @foreach(var obj in Model)
         {
             <tr>
-                <td>
-                    @obj.User.UserName
-                </td>
+                
                 <td>
                     @obj.PostDescription
                 </td>

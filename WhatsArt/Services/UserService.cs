@@ -1,4 +1,5 @@
-﻿using WhatsArt.Models;
+﻿using WhatsArt.Data;
+using WhatsArt.Models;
 using WhatsArt.Repositories.Interfaces;
 using WhatsArt.Services.Interfaces;
 
@@ -7,6 +8,7 @@ namespace WhatsArt.Services
     public class UserService : IUserService
     {
         private IRepositoryWrapper _repositoryWrapper;
+        private readonly ApplicationDbContext _dbContext;
 
         public UserService(IRepositoryWrapper repositoryWrapper)
         {
@@ -25,6 +27,13 @@ namespace WhatsArt.Services
             return users;
         }
 
+        public void Delete(int id)
+        {
 
+            var obj = _dbContext.Users.Find(id);
+            _dbContext.Users.Remove(obj);
+            _dbContext.SaveChanges();
+
+        }
     }
 }

@@ -36,5 +36,31 @@ namespace WhatsArt.Services
             var posts = _dbContext.Posts.Include("User").Where(x => x.UserId == id).ToList();
             return posts;
         }
+
+   
+        public void Delete(int id)
+        {
+           var obj = _dbContext.Posts.Find(id);
+            _dbContext.Posts.Remove(obj);
+            _dbContext.SaveChanges();
+            
+        }
+       
+        public Post GetPostById(int? id)
+        {
+            var post = _dbContext.Posts.Find(id);
+            return post;
+        }
+
+       
+
+        public void EditPost(Post obj)
+        {
+            _dbContext.Posts.Update(obj);
+            _dbContext.SaveChanges();
+            _dbContext.Posts.Remove(obj);
+            _dbContext.SaveChanges();
+            
+        }
     }
 }

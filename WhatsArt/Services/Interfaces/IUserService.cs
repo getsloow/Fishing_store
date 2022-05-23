@@ -10,5 +10,6 @@ namespace WhatsArt.Services.Interfaces
         void Create(User user);
 
 
+        void Delete(int id);
     }
 }

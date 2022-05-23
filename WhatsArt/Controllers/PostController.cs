@@ -18,6 +18,12 @@ namespace WhatsArt.Controllers
             return View(objPostsList);
         }
 
+        public IActionResult HomePage()
+        {
+            IEnumerable<Post> objPostsList = postServices.GetPosts();
+            return View(objPostsList);
+        }
+
         public IActionResult Create()
         {
             return View();
@@ -35,6 +41,26 @@ namespace WhatsArt.Controllers
         {
             IEnumerable<Post> obj = postServices.GetUserPosts(id);
             return View(obj);
+        }
+        public IActionResult Delete(int  id)
+        {
+
+            postServices.Delete(id);
+            return RedirectToAction("Index");
+        }
+  
+        public IActionResult Edit(int? id)
+        {
+            var obj = postServices.GetPostById(id);
+            return View(obj);
+        }
+  
+        [HttpPost]
+        public IActionResult EditPost(Post obj)
+        {
+            
+            postServices.EditPost(obj);
+            return RedirectToAction("Index");
         }
     }
 }
