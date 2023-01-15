@@ -12,11 +12,11 @@
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-secondary"> User List</h2>
+            <h2 class="text-secondary"> Categories List</h2>
         </div>
         <div class="col-6 text-end">
             <a asp-controller="User" asp-action="Create" class="btn btn-primary">
-             <i class="bi bi-plus-circle-fill"></i> Create New User
+                <i class="bi bi-plus-circle-fill"></i> Create New Category
             </a>
         </div>
     </div>
@@ -27,13 +27,15 @@
     <thead>
         <tr>
             <th>
-                User Name
+                Category Name
             </th>
              <th>
-                E-Mail Address
+                Category Details
+            </th>
+            <th>
+                
             </th>
             
-            <th></th>
         </tr>
 
     </thead>
@@ -42,20 +44,26 @@
         {
             <tr>
                 <td>
+                    <center>
+                          <center> <img src="@obj.UserPassword" width="200px" height="200px "></img><br/></center>
+                 
                     @obj?.UserName
+                        </center>
                 </td>
                 <td>
                     @obj?.UserEmail
                 </td>
-                 
+               @*     <td >
+                    <img src ="@obj.UserPassword" width="200px" height="200px"></img>
+                </td>*@
                 <td>
                     <div class="w-75 btn-group" role="group">
                             <a asp-controller="Post" asp-action="ViewUserPosts" asp-route-id="@obj.Id" 
-                        class="btn btn-primary"><i class="bi bi-pencil-fill"></i>View Posts</a>
+                        class="btn btn-primary"><i class="bi bi-pencil-fill"></i>View Products in this Category</a>
                         <a asp-controller="User" asp-action="Edit" asp-route-id="@obj.Id" 
-                        class="btn btn-primary"><i class="bi bi-pencil-fill"></i>Edit</a>
+                        class="btn btn-primary"><i class="bi bi-pencil-fill"></i>Edit Category</a>
                          <a asp-controller="User" asp-action="Delete" asp-route-id="@obj.Id" 
-                        class="btn btn-primary"><i class="bi bi-trash-fill"></i>Delete</a>
+                        class="btn btn-primary"><i class="bi bi-trash-fill"></i>Delete Category</a>
                     </div>
                 </td>
             </tr>

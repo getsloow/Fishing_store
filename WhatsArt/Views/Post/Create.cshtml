@@ -4,7 +4,7 @@
 <form method="post">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
-            <h2 class="text-secondary">Create Post</h2>
+            <h2 class="text-secondary">Add Product</h2>
             <hr />
         </div>
         <div asp-validation-summary="All"></div>
@@ -27,7 +27,7 @@
                <span asp-validation-for="UserId" class="text-danger"></span>
 
         </div>
-        <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+        <button type="submit" class="btn btn-primary" style="width:150px">Add</button>
         <a asp-controller="Post" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to list </a>
     </div>
 

@@ -11,7 +11,7 @@ namespace WhatsArt.Models
         [Required]
         [Display(Name = "E-Mail Address")]
         public string UserEmail { get; set; }
-        [Required]
+     
         public string UserPassword { get; set; }
 
 
